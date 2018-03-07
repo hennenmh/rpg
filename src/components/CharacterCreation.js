@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
 class CharacterCreation extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             name: "Cap'n Placeholder",
             attack: 5,
@@ -14,7 +14,8 @@ class CharacterCreation extends Component {
         console.log(this.state)
         this.props.createCharacter(this.state);
         this.props.changeScreen(1);
-        this.props.getEnemy(0);
+        this.props.loadEnemies();
+        this.props.currentEnemy(0);
     }
 
     handleNameChange = (event) => {
@@ -25,6 +26,8 @@ class CharacterCreation extends Component {
         console.log("attack changed: ", event.target.value)
         if (event.target.value > 5) {
             this.setState({attack: 5});
+        } else if (event.target.value <= 0){
+            this.setState({attack: 1})
         } else {
             this.setState({attack: +event.target.value});
         }
@@ -33,7 +36,9 @@ class CharacterCreation extends Component {
         console.log("defense changed: ", event.target.value)
         if (event.target.value > 5) {
             this.setState({defense: 5})
-        } else {
+        } else if (event.target.value <= 0){
+            this.setState({defense: 1})
+        }else {
             this.setState({defense: +event.target.value});
         }
     }
@@ -41,7 +46,9 @@ class CharacterCreation extends Component {
         console.log("health changed: ", event.target.value)
         if (event.target.value > 20) {
             this.setState({health: 20})
-        } else {
+        } else if (event.target.value <= 0){
+            this.setState({health: 1})
+        }else {
             this.setState({health: +event.target.value});
         }
     }

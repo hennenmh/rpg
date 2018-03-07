@@ -14,6 +14,14 @@ export const createCharacter = (character) => {
     }
 }
 
+export const updateCharacter = (property, value) => {
+    return {
+        type: 'UPDATE_CHARACTER',
+        property,
+        value
+    }
+}
+
 export const changeScreen = (screen) => {
     return {
         type: 'CHANGE_SCREEN',
@@ -21,9 +29,23 @@ export const changeScreen = (screen) => {
     }
 }
 
-export const loadEnemy = (enemy) => {
+export const loadEnemies = () => {
     return {
-        type: 'LOAD_ENEMY',
-        payload: enemy
+        type: 'LOAD_ENEMIES',
+    }
+}
+
+export const updateEnemy = (enemyId, health) => {
+    return {
+        type: 'UPDATE_ENEMY',
+        enemyId,
+        health
+    }
+}
+
+export const currentEnemy = (id) => {
+    return {
+        type: 'CURRENT_ENEMY',
+        id
     }
 }

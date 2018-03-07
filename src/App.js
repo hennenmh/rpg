@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import CreateCharacter from './containers/create-character';
 import EnemyList from './containers/enemy-list';
 import Character from './containers/character';
+import Battle from './containers/battle-container';
+import UpgradeScreen from './containers/upgrade-container';
 
 class App extends Component {
   render() {
@@ -25,8 +27,24 @@ class App extends Component {
             <div className="encounter">
               <Character />
               <EnemyList />
-              
             </div>
+            <Battle />
+          </div>
+        )
+        break;
+      case 2:
+        page = (
+          <div>
+            <h2>Congratulations!</h2>
+            <h3>Upgrade an Ability: </h3>
+            <UpgradeScreen />
+          </div>
+        )
+        break;
+      case 3:
+        page = (
+          <div>
+            <h2>You Have Been Defeated!</h2>
           </div>
         )
         break;

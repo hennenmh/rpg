@@ -3,7 +3,7 @@ import CharacterStats from '../components/CharacterStats';
 
 function mapStateToProps(state) {
         return {
-            character: state.character[0] || {}
+            character: state.character || {}
         }
 }
 

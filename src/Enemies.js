@@ -7,7 +7,7 @@ import Rat from './images/Rat.jpg';
 export default function() {
     return [
         {
-            id: 1,
+            id: 0,
             name: "Rat",
             attack: 1,
             defense: 1,
@@ -15,7 +15,7 @@ export default function() {
             src: Rat,
         },
         {
-            id: 2,
+            id: 1,
             name: "Rat King",
             attack: 2,
             defense: 1,
@@ -23,7 +23,7 @@ export default function() {
             src: RatKing
         },
         {
-            id: 3,
+            id: 2,
             name: "Kobold",
             attack: 3,
             defense: 3,
@@ -31,7 +31,7 @@ export default function() {
             src: Kobold
         },
         {
-            id: 4,
+            id: 3,
             name: "Ooze",
             attack: 5,
             defense: 2,
@@ -39,7 +39,7 @@ export default function() {
             src: Ooze
         },
         {
-            id: 5,
+            id: 4,
             name: "Dragon",
             attack: 7,
             defense: 7,

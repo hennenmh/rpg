@@ -1,4 +1,4 @@
-export default function(state={}, action) {
+export default function(state=[], action) {
     switch(action.type) {
         case "CREATE_CHARACTER":
             return [
@@ -14,6 +14,10 @@ export default function(state={}, action) {
                     src: action.src
                 }
             ]
+        case "UPDATE_CHARACTER":
+            return state.map(character =>(
+                {...character, 
+                    [action.property]: action.value}))
         default:
             return state;
     }
