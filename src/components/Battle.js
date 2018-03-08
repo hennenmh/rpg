@@ -19,6 +19,7 @@ class Battle extends Component {
             enemyAttack: this.props.enemy[this.enemyId].attack,
             enemyDefense: this.props.enemy[this.enemyId].defense,
             enemyHealth: this.props.enemy[this.enemyId].health,
+            isPlayerTurn: true,
         }
     }
 
@@ -27,9 +28,12 @@ class Battle extends Component {
     }
 
     handleBattleClick = () => {
-        this.roundNum++;
-        this.characterAttackPhase(this.state.charAttack, this.state.enemyDefense, this.state.enemyHealth);
-        this.enemyAttackPhase(this.state.enemyAttack, this.state.charDefense, this.state.charHealth);
+        if(this.state.isPlayerTurn) {
+            this.setState({isPlayerTurn: false})
+            this.roundNum++;
+            this.characterAttackPhase(this.state.charAttack, this.state.enemyDefense, this.state.enemyHealth);
+            this.enemyAttackPhase(this.state.enemyAttack, this.state.charDefense, this.state.charHealth);
+        }
     }
 
     characterAttackPhase = (cAtk, eDef, eHealth) => {
@@ -40,6 +44,7 @@ class Battle extends Component {
             this.props.updateEnemy(this.enemyId, this.state.enemyHealth)
             setTimeout(() => {
                 this.checkResults()
+                this.setState({isPlayerTurn: true})
             }, 1000)
         })
             
@@ -53,6 +58,7 @@ class Battle extends Component {
             this.props.updateCharacter("health", this.state.charHealth )
             setTimeout(() => {
                 this.checkResults()
+                this.setState({isPlayerTurn: true})
             }, 1000)
         })
     }
@@ -82,6 +88,18 @@ class Battle extends Component {
                 <p>Character Roll: {this.charRoll}</p>
                 <p>Enemy Roll: {this.enemyRoll}</p>
                 <input type="button" value={buttonText} onClick={this.handleBattleClick}></input>
+                <h4>Upcoming Monsters</h4>
+                <ul>
+                    {this.props.enemy.map(list => (
+                        list.health > 0 && (list.id !== this.enemyId) ? <img height="125px" width="125px" src={list.src} /> : null
+                    ))}
+                </ul>
+                <h4>Defeated Monsters</h4>
+                <ul>
+                    {this.props.enemy.map(list => (
+                        list.health <= 0 && (list.id !== this.enemyId) ? <img height="125px" width="125px" src={list.src} /> : null
+                    ))}
+                </ul>
             </div>
         )
     }
