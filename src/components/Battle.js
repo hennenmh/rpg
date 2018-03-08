@@ -45,7 +45,7 @@ class Battle extends Component {
             setTimeout(() => {
                 this.checkResults()
                 this.setState({isPlayerTurn: true})
-            }, 1000)
+            }, 500)
         })
             
     }
@@ -59,7 +59,7 @@ class Battle extends Component {
             setTimeout(() => {
                 this.checkResults()
                 this.setState({isPlayerTurn: true})
-            }, 1000)
+            }, 500)
         })
     }
 

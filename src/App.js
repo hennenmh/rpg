@@ -9,6 +9,11 @@ import UpgradeScreen from './containers/upgrade-container';
 import LossScreen from './containers/loss-container';
 
 class App extends Component {
+
+  reload = () => {
+    window.location.reload();
+  }
+
   render() {
 
     let page;
@@ -55,6 +60,7 @@ class App extends Component {
           <div>
             <h2>Congratulations!</h2>
             <h3>You are the Master of the Dungeon!</h3>
+            <input type="button" value="Start New Game" onClick={this.reload}/>
           </div>
         )
         break;

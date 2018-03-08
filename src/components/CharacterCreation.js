@@ -11,7 +11,6 @@ class CharacterCreation extends Component {
         }
     }
     handleCreateClick = () => {
-        console.log(this.state)
         this.props.createCharacter(this.state);
         this.props.changeScreen(1);
         this.props.loadEnemies();
@@ -19,34 +18,30 @@ class CharacterCreation extends Component {
     }
 
     handleNameChange = (event) => {
-        console.log("name changed: ", event.target.value)
         this.setState({name: event.target.value});
     }
     handleAttackChange = (event) => {
-        console.log("attack changed: ", event.target.value)
         if (event.target.value > 3) {
             this.setState({attack: 3});
-        } else if (event.target.value <= 0){
+        } else if (event.target.value <= 0 || !parseInt(event.target.value)){
             this.setState({attack: 1})
         } else {
             this.setState({attack: +event.target.value});
         }
     }
     handleDefenseChange = (event) => {
-        console.log("defense changed: ", event.target.value)
         if (event.target.value > 3) {
             this.setState({defense: 3})
-        } else if (event.target.value <= 0){
+        } else if (event.target.value <= 0 || !parseInt(event.target.value)){
             this.setState({defense: 1})
         }else {
             this.setState({defense: +event.target.value});
         }
     }
     handleHealthChange = (event) => {
-        console.log("health changed: ", event.target.value)
         if (event.target.value > 20) {
             this.setState({health: 20})
-        } else if (event.target.value <= 0){
+        } else if (event.target.value <= 0 || !parseInt(event.target.value)){
             this.setState({health: 1})
         }else {
             this.setState({health: +event.target.value});

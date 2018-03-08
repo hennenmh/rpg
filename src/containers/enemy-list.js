@@ -5,7 +5,7 @@ function mapStateToProps(state) {
     console.log(state.currentEnemy)
     return {
         enemy: state.enemy || [],
-        currentEnemy: state.enemy[state.currentEnemy] || 2
+        currentEnemy: state.enemy[state.currentEnemy] || 0
     }
 }
 
