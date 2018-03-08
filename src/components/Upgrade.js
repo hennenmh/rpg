@@ -23,6 +23,8 @@ class Upgrade extends Component {
     render() {
         return (
             <div>
+                <div>Current Level: {this.props.character[0].level}</div>
+                <div>Current XP: {this.props.character[0].xp}</div><br/>
                 <input type="button" value="Attack +2" onClick={this.handleAttInc}/><br/>
                 <input type="button" value="Defense +2" onClick={this.handleDefInc}/><br/>
                 <input type="button" value="Health +2" onClick={this.handleHealthInc}/><br/>

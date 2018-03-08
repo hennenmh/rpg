@@ -3,33 +3,38 @@ import React, {Component} from 'react';
 class Battle extends Component {
 
     roundNum = 1;
-    charId = 0;
-    enemyId = 0;
+    enemyId = this.props.currentEnemy;
     totCharHealth = this.props.character[0].health;
+    charRoll = 0;
+    enemyRoll = 0;
 
     constructor(props) {
         super(props);
         this.state = {
-            charAttack: this.props.character[this.charId].attack,
-            charDefense: this.props.character[this.charId].defense,
-            charHealth: this.props.character[this.charId].health,
-            charLevel: this.props.character[this.charId].level,
-            charXp: this.props.character[this.charId].xp,
+            charAttack: this.props.character[0].attack,
+            charDefense: this.props.character[0].defense,
+            charHealth: this.props.character[0].health,
+            charLevel: this.props.character[0].level,
+            charXp: this.props.character[0].xp,
             enemyAttack: this.props.enemy[this.enemyId].attack,
             enemyDefense: this.props.enemy[this.enemyId].defense,
             enemyHealth: this.props.enemy[this.enemyId].health,
         }
     }
 
+    rollD6 = () => {
+        return Math.floor((Math.random() * 6) + 1);
+    }
+
     handleBattleClick = () => {
         this.roundNum++;
         this.characterAttackPhase(this.state.charAttack, this.state.enemyDefense, this.state.enemyHealth);
         this.enemyAttackPhase(this.state.enemyAttack, this.state.charDefense, this.state.charHealth);
-        
     }
 
     characterAttackPhase = (cAtk, eDef, eHealth) => {
-        let damage = (cAtk - eDef);
+        this.charRoll = this.rollD6();
+        let damage = ((cAtk + this.charRoll) - eDef);
         (damage < 0) ? damage = 0 : damage;
         this.setState({enemyHealth: (eHealth - damage)}, function() {
             this.props.updateEnemy(this.enemyId, this.state.enemyHealth)
@@ -38,7 +43,8 @@ class Battle extends Component {
     }
 
     enemyAttackPhase = (eAtk, cDef, cHealth) => {
-        let damage = (eAtk - cDef);
+        this.enemyRoll = this.rollD6();
+        let damage = ((eAtk + this.enemyRoll) - cDef);
         (damage < 0) ? damage = 0 : damage;
         this.setState({charHealth: (cHealth - damage)}, function() {
             this.props.updateCharacter("health", this.state.charHealth )
@@ -47,10 +53,17 @@ class Battle extends Component {
 
     checkResults = () => {
         if (this.state.enemyHealth <= 0 && this.state.charHealth > 0) {
-            this.enemyId++;
-            this.roundNum = 1;
-            this.props.changeScreen(2);
-            this.props.updateCharacter("health", this.totCharHealth)
+            if (this.enemyId === 5) {
+                this.props.changeScreen(4);
+            } else {
+                this.enemyId++;
+                this.roundNum = 1;
+                this.props.changeScreen(2);
+                this.props.updateCharacter("health", this.totCharHealth);
+                this.props.updateCharacter("level", this.state.charLevel + 1);
+                this.props.updateCharacter("xp", this.state.charXp + 50);
+            }
+            
         } else if (this.state.charHealth <= 0) {
             this.props.changeScreen(3);
         }
@@ -60,6 +73,8 @@ class Battle extends Component {
         let buttonText = "BATTLE! Round: " + this.roundNum;
         return (
             <div>
+                <p>Character Roll: {this.charRoll}</p>
+                <p>Enemy Roll: {this.enemyRoll}</p>
                 <input type="button" value={buttonText} onClick={this.handleBattleClick}></input>
             </div>
         )

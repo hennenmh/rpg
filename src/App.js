@@ -48,6 +48,14 @@ class App extends Component {
           </div>
         )
         break;
+      case 4:
+        page = (
+          <div>
+            <h2>Congratulations!</h2>
+            <h3>You are the Master of the Dungeon!</h3>
+          </div>
+        )
+        break;
       default:
         break;
     }

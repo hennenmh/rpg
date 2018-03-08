@@ -25,7 +25,7 @@ export default function() {
         {
             id: 2,
             name: "Kobold",
-            attack: 3,
+            attack: 4,
             defense: 3,
             health: 20,
             src: Kobold
@@ -33,7 +33,7 @@ export default function() {
         {
             id: 3,
             name: "Ooze",
-            attack: 5,
+            attack: 6,
             defense: 2,
             health: 25,
             src: Ooze
@@ -41,8 +41,8 @@ export default function() {
         {
             id: 4,
             name: "Dragon",
-            attack: 7,
-            defense: 7,
+            attack: 6,
+            defense: 6,
             health: 30,
             src: BlackDragon
         },

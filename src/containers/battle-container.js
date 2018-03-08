@@ -5,7 +5,8 @@ import {updateCharacter, updateEnemy, changeScreen} from '../actions';
 function mapStateToProps(state) {
     return {
         character: state.character || [],
-        enemy: state.enemy || []
+        enemy: state.enemy || [],
+        currentEnemy: state.currentEnemy
     }
 }
 

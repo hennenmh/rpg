@@ -5,8 +5,8 @@ class CharacterCreation extends Component {
         super(props);
         this.state = {
             name: "Cap'n Placeholder",
-            attack: 5,
-            defense: 5,
+            attack: 3,
+            defense: 3,
             health: 20,
         }
     }
@@ -24,8 +24,8 @@ class CharacterCreation extends Component {
     }
     handleAttackChange = (event) => {
         console.log("attack changed: ", event.target.value)
-        if (event.target.value > 5) {
-            this.setState({attack: 5});
+        if (event.target.value > 3) {
+            this.setState({attack: 3});
         } else if (event.target.value <= 0){
             this.setState({attack: 1})
         } else {
@@ -34,8 +34,8 @@ class CharacterCreation extends Component {
     }
     handleDefenseChange = (event) => {
         console.log("defense changed: ", event.target.value)
-        if (event.target.value > 5) {
-            this.setState({defense: 5})
+        if (event.target.value > 3) {
+            this.setState({defense: 3})
         } else if (event.target.value <= 0){
             this.setState({defense: 1})
         }else {
@@ -58,8 +58,8 @@ class CharacterCreation extends Component {
             <div className="creator">
                 <form>
                 <input className="name" placeholder="Name" onChange={this.handleNameChange}/><br/>
-                <input className="attack" placeholder="Attack (Max = 5)" onChange={this.handleAttackChange}/><br/>
-                <input className="defense" placeholder="Defense (Max = 5)" onChange={this.handleDefenseChange}/><br/>
+                <input className="attack" placeholder="Attack (Max = 3)" onChange={this.handleAttackChange}/><br/>
+                <input className="defense" placeholder="Defense (Max = 3)" onChange={this.handleDefenseChange}/><br/>
                 <input className="health" placeholder="Health (Max = 20)" onChange={this.handleHealthChange}/><br/>
                 <input type="button" value="Begin Adventure!" onClick={this.handleCreateClick}/>
                 </form>
