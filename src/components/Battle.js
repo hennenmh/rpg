@@ -38,7 +38,10 @@ class Battle extends Component {
         (damage < 0) ? damage = 0 : damage;
         this.setState({enemyHealth: (eHealth - damage)}, function() {
             this.props.updateEnemy(this.enemyId, this.state.enemyHealth)
-            this.checkResults()})
+            setTimeout(() => {
+                this.checkResults()
+            }, 1000)
+        })
             
     }
 
@@ -48,7 +51,10 @@ class Battle extends Component {
         (damage < 0) ? damage = 0 : damage;
         this.setState({charHealth: (cHealth - damage)}, function() {
             this.props.updateCharacter("health", this.state.charHealth )
-            this.checkResults()})
+            setTimeout(() => {
+                this.checkResults()
+            }, 1000)
+        })
     }
 
     checkResults = () => {

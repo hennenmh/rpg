@@ -6,6 +6,7 @@ import EnemyList from './containers/enemy-list';
 import Character from './containers/character';
 import Battle from './containers/battle-container';
 import UpgradeScreen from './containers/upgrade-container';
+import LossScreen from './containers/loss-container';
 
 class App extends Component {
   render() {
@@ -45,6 +46,7 @@ class App extends Component {
         page = (
           <div>
             <h2>You Have Been Defeated!</h2>
+            <LossScreen />
           </div>
         )
         break;
