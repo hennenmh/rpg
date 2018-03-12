@@ -1,10 +1,8 @@
 import {connect} from 'react-redux';
 import CharacterStats from '../components/CharacterStats';
 
-function mapStateToProps(state) {
-        return {
+const mapStateToProps = (state) => ({
             character: state.character || {}
-        }
-}
+});
 
 export default connect(mapStateToProps)(CharacterStats);

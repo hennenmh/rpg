@@ -3,12 +3,11 @@ import {createCharacter, changeScreen, loadEnemies, currentEnemy} from '../actio
 import CharacterCreation from '../components/CharacterCreation';
 
 
-function mapDispatchToProps(dispatch) {
-    return {
+const mapDispatchToProps = (dispatch) => ({
         createCharacter : (character) => dispatch(createCharacter(character)),
         changeScreen : (screen) => dispatch(changeScreen(screen)),
         loadEnemies : () => dispatch(loadEnemies()),
-        currentEnemy: (id) => dispatch(currentEnemy(id))}
-}
+        currentEnemy: (id) => dispatch(currentEnemy(id))
+});
 
 export default connect(null, mapDispatchToProps)(CharacterCreation);

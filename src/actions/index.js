@@ -1,7 +1,6 @@
 import Cap from '../images/Captain_placeholder.png';
 let nextCharId = 0
-export const createCharacter = (character) => {
-    return {
+export const createCharacter = (character) => ({
         type: 'CREATE_CHARACTER',
         id: nextCharId++,
         name: character.name,
@@ -10,42 +9,34 @@ export const createCharacter = (character) => {
         health: character.health,
         level: 1,
         xp: 0,
-        src: Cap
-    }
-}
+        gold: 0,
+        armor: {},
+        weapon: {},
+        src: Cap,
+});
 
-export const updateCharacter = (property, value) => {
-    return {
+export const updateCharacter = (property, value) => ({
         type: 'UPDATE_CHARACTER',
         property,
-        value
-    }
-}
+        value,
+});
 
-export const changeScreen = (screen) => {
-    return {
+export const changeScreen = (screen) => ({
         type: 'CHANGE_SCREEN',
-        payload: screen
-    }
-}
+        payload: screen,
+});
 
-export const loadEnemies = () => {
-    return {
+export const loadEnemies = () => ({
         type: 'LOAD_ENEMIES',
-    }
-}
+});
 
-export const updateEnemy = (enemyId, health) => {
-    return {
+export const updateEnemy = (enemyId, health) => ({
         type: 'UPDATE_ENEMY',
         enemyId,
-        health
-    }
-}
+        health,
+});
 
-export const currentEnemy = (id) => {
-    return {
+export const currentEnemy = (id) => ({
         type: 'CURRENT_ENEMY',
-        id
-    }
-}
+        id,
+});

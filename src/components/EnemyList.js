@@ -4,7 +4,6 @@ class EnemyList extends Component {
     id = this.props.currentEnemy.id;
     
     render() {
-        console.log(this.props.currentEnemy)
         return (
             <div>
                 <img src={this.props.enemy[this.id].src} alt="Enemy"></img>
