@@ -19,7 +19,7 @@ export default function() {
             name: "Rat King",
             attack: 2,
             defense: 1,
-            health: 15,
+            health: 1,
             src: RatKing
         },
         {
@@ -27,7 +27,7 @@ export default function() {
             name: "Kobold",
             attack: 3,
             defense: 3,
-            health: 20,
+            health: 1,
             src: Kobold
         },
         {
@@ -35,7 +35,7 @@ export default function() {
             name: "Ooze",
             attack: 4,
             defense: 2,
-            health: 25,
+            health: 1,
             src: Ooze
         },
         {
@@ -43,7 +43,7 @@ export default function() {
             name: "Dragon",
             attack: 6,
             defense: 6,
-            health: 30,
+            health: 1,
             src: BlackDragon
         },
 

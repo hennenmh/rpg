@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 
 class Loss extends Component {
 
-    reload = () => {
-        window.location.reload();
+    handleNewGameClick = () => {
+        this.props.deleteEnemies();
+        this.props.deleteCharacter();
+        this.props.changeScreen(0);
     }
 
     render() {
@@ -21,7 +23,7 @@ class Loss extends Component {
                         undefeated.health > 0 ? <img key={undefeated.id} src={undefeated.src} alt="undefeated"/> : null
                     ))}
                 </ul>
-                <input type="button" value="Start New Game" onClick={this.reload}/>
+                <input type="button" value="Start New Game" onClick={this.handleNewGameClick}/>
             </div>
         )
     }

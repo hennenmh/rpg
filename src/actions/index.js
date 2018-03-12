@@ -21,6 +21,10 @@ export const updateCharacter = (property, value) => ({
         value,
 });
 
+export const deleteCharacter = () => ({
+        type: 'DELETE_CHARACTER'
+})
+
 export const changeScreen = (screen) => ({
         type: 'CHANGE_SCREEN',
         payload: screen,
@@ -35,6 +39,10 @@ export const updateEnemy = (enemyId, health) => ({
         enemyId,
         health,
 });
+
+export const deleteEnemies = () => ({
+        type: 'DELETE_ENEMIES'
+})
 
 export const currentEnemy = (id) => ({
         type: 'CURRENT_ENEMY',

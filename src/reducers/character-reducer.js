@@ -1,6 +1,6 @@
 export default function(state=[], action) {
     switch(action.type) {
-        case "CREATE_CHARACTER":
+        case 'CREATE_CHARACTER':
             return [
                 ...state,
                 {
@@ -13,14 +13,16 @@ export default function(state=[], action) {
                     xp: action.xp,
                     gold: action.gold,
                     armor: action.armor,
-                    weapon: action.weapon,
+                    weapon:action.weapon,
                     src: action.src
                 }
             ]
-        case "UPDATE_CHARACTER":
+        case 'UPDATE_CHARACTER':
             return state.map(character =>(
                 {...character, 
                     [action.property]: action.value}))
+        case 'DELETE_CHARACTER':
+            return {...state, character: []}
         default:
             return state;
     }

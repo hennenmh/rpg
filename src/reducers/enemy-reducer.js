@@ -9,6 +9,8 @@ export default function(state=[], action) {
                     (enemy.id === action.enemyId)
                     ? {...enemy, health: action.health}
                     : enemy)
+        case 'DELETE_ENEMIES':
+            return {...state, enemy: []}
         default:
             return state;
     }

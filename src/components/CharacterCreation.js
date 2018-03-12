@@ -50,14 +50,13 @@ class CharacterCreation extends Component {
 
     render() {
         return (
-            <div className="creator">
-                <form>
+            <div>
+                <h2>Create Character:</h2>
                 <input className="name" placeholder="Name" onChange={this.handleNameChange}/><br/>
                 <input className="attack" placeholder="Attack (Max = 3)" onChange={this.handleAttackChange}/><br/>
                 <input className="defense" placeholder="Defense (Max = 3)" onChange={this.handleDefenseChange}/><br/>
                 <input className="health" placeholder="Health (Max = 20)" onChange={this.handleHealthChange}/><br/>
                 <input type="button" value="Begin Adventure!" onClick={this.handleCreateClick}/>
-                </form>
             </div>
         )
     }

@@ -7,11 +7,13 @@ import Character from './containers/character';
 import Battle from './containers/battle-container';
 import UpgradeScreen from './containers/upgrade-container';
 import LossScreen from './containers/loss-container';
+import InitialScreen from './containers/initial-screen-container';
+import {changeScreen} from './actions';
 
 class App extends Component {
 
-  reload = () => {
-    window.location.reload();
+  showInitScreen = () => {
+    this.props.changeScreen(5);
   }
 
   render() {
@@ -21,7 +23,6 @@ class App extends Component {
       case 0:
         page = (
           <div>
-            <h2>Create Character:</h2>
             <CreateCharacter />
           </div>
         );
@@ -60,7 +61,14 @@ class App extends Component {
           <div>
             <h2>Congratulations!</h2>
             <h3>You are the Master of the Dungeon!</h3>
-            <input type="button" value="Start New Game" onClick={this.reload}/>
+            <input type="button" value="Start New Game" onClick={this.showInitScreen} />
+          </div>
+        )
+        break;
+      case 5:
+        page = (
+          <div>
+            <InitialScreen />
           </div>
         )
         break;
@@ -75,10 +83,12 @@ class App extends Component {
   }
 };
 
-function mapStateToProps(state) {
-  return {
-      activeScreen: state.activeScreen
-  }
-}
+const mapStateToProps = (state) => ({
+  activeScreen : state.activeScreen
+});
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => ({
+  changeScreen : (screen) => dispatch(changeScreen(screen))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

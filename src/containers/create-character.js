@@ -7,7 +7,7 @@ const mapDispatchToProps = (dispatch) => ({
         createCharacter : (character) => dispatch(createCharacter(character)),
         changeScreen : (screen) => dispatch(changeScreen(screen)),
         loadEnemies : () => dispatch(loadEnemies()),
-        currentEnemy: (id) => dispatch(currentEnemy(id))
+        currentEnemy : (id) => dispatch(currentEnemy(id))
 });
 
 export default connect(null, mapDispatchToProps)(CharacterCreation);
