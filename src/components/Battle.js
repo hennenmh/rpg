@@ -4,7 +4,7 @@ class Battle extends Component {
 
     roundNum = 1;
     enemyId = this.props.currentEnemy;
-    totCharHealth = this.props.character[0].health;
+    totCharHealth = this.props.character.health;
     isPlayerTurn = true;
     charAtkText = "";
     enemyAtkText = "";
@@ -22,12 +22,12 @@ class Battle extends Component {
         if(this.isPlayerTurn) {
             this.isPlayerTurn = false;
             this.roundNum++;
-            this.characterPhysicalAttack(this.props.character[0].attack,
+            this.characterPhysicalAttack(this.props.character.attack,
                                         this.props.enemy[this.enemyId].defense,
                                         this.props.enemy[this.enemyId].health);
             this.enemyBaseAtk(this.props.enemy[this.enemyId].attack,
-                                    this.props.character[0].defense,
-                                    this.props.character[0].health);
+                                    this.props.character.defense,
+                                    this.props.character.health);
         }
     }
 
@@ -35,12 +35,12 @@ class Battle extends Component {
         if (this.isPlayerTurn) {
             this.isPlayerTurn = false;
             this.roundNum++;
-            this.characterMagicAttack((Math.floor(this.props.character[0].attack * 1.5)), //character does 1.5 times attack as magic
+            this.characterMagicAttack((Math.floor(this.props.character.attack * 1.5)), //character does 1.5 times attack as magic
                                         (this.props.enemy[this.enemyId].defense + Math.floor(this.enemyId * .5)), //enemy has more magic defense as game goes on
                                         this.props.enemy[this.enemyId].health);
             this.enemyBaseAtk(this.props.enemy[this.enemyId].attack,
-                                    this.props.character[0].defense,
-                                    this.props.character[0].health);
+                                    this.props.character.defense,
+                                    this.props.character.health);
         }
     }
 
@@ -96,20 +96,20 @@ class Battle extends Component {
     }
 
     checkResults = () => {
-        if (this.props.enemy[this.enemyId].health <= 0 && this.props.character[0].health > 0) {
+        if (this.props.enemy[this.enemyId].health <= 0 && this.props.character.health > 0) {
             if (this.enemyId === 4) {
                 this.props.changeScreen(4);
             } else {
                 this.roundNum = 1;
                 this.props.changeScreen(2);
                 this.props.updateCharacter("health", this.totCharHealth);
-                this.props.updateCharacter("level", this.props.character[0].level + 1);
-                this.props.updateCharacter("xp", this.props.character[0].xp + 50);
-                this.props.updateCharacter("gold", this.props.character[0].gold + 
+                this.props.updateCharacter("level", this.props.character.level + 1);
+                this.props.updateCharacter("xp", this.props.character.xp + 50);
+                this.props.updateCharacter("gold", this.props.character.gold + 
                     (this.rollD100() < 20 ? 0 : (this.rollD6() * 2)))
             }
             
-        } else if (this.props.character[0].health <= 0) {
+        } else if (this.props.character.health <= 0) {
             this.props.changeScreen(3);
         }
     }

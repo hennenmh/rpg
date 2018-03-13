@@ -1,13 +1,13 @@
 import {connect} from 'react-redux';
 import Store from '../components/Store';
-import {updateCharacter} from '../actions';
+import {addInventory} from '../actions';
 
 const mapStateToProps = (state) => ({
-        items: state.items
+    items: state.items
 });
 
 const mapDispatchToProps = (dispatch) => ({
-        updateCharacter : () => dispatch(updateCharacter()),
+    addInventory : (item) => dispatch(addInventory(item)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Store)

@@ -57,3 +57,8 @@ export const loadItems = () => ({
 export const deleteItems = () => ({
         type: 'DELETE_ITEMS'
 })
+
+export const addInventory = (item) => ({
+        type: 'ADD_INVENTORY',
+        item
+})

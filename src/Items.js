@@ -10,6 +10,7 @@ export default function() {
         {
             id: 0,
             name: "Sword",
+            type: "weapon",
             attack: 1,
             defense: 0,
             cost: 1,
@@ -18,6 +19,7 @@ export default function() {
         {
             id: 1,
             name: "Wand",
+            type: "weapon",
             attack: 2,
             defense: 0,
             cost: 2,
@@ -26,6 +28,7 @@ export default function() {
         {
             id: 2,
             name: "Vorpal Scimitar",
+            type: "weapon",
             attack: 5,
             defense: 0,
             cost: 5,
@@ -34,6 +37,7 @@ export default function() {
         {
             id: 3,
             name: "Leather Armor",
+            type: "armor",
             attack: 0,
             defense: 1,
             cost: 1,
@@ -42,6 +46,7 @@ export default function() {
         {
             id: 4,
             name: "Plate Armor",
+            type: "armor",
             attack: 0,
             defense: 2,
             cost: 3,
@@ -50,6 +55,7 @@ export default function() {
         {
             id: 5,
             name: "Mithril Shirt",
+            type: "armor",
             attack: 0,
             defense: 5,
             cost: 5,

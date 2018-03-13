@@ -1,9 +1,31 @@
 import React, {Component} from 'react';
+import { updateCharacter } from '../actions/index';
 
 class Store extends Component {
 
     randomItem = () => {
         return Math.floor(Math.random() * 5)
+    }
+
+    item1Id = this.randomItem();
+    item2Id = this.randomItem();
+    item3Id = this.randomItem();
+
+    handleBuyItem1Click = () => {
+        this.props.addInventory(this.props.items[this.item1Id])
+
+        // Use this for equipping items
+        // this.props.items[this.item1Id].type === "weapon"
+        // ? this.props.updateCharacter("weapon", this.props.items[this.item1Id])
+        // : this.props.updateCharacter("armor", this.props.items[this.item1Id])
+    }
+
+    handleBuyItem2Click = () => {
+        this.props.addInventory(this.props.items[this.item2Id])
+    }
+
+    handleBuyItem3Click = () => {
+        this.props.addInventory(this.props.items[this.item3Id])
     }
 
     render() {
@@ -12,9 +34,30 @@ class Store extends Component {
                 <br/><h3>It's Dangerous to go Alone!</h3>
                 <h3>Buy Something!</h3>
                 <div className="store-items">
-                    <img src={this.props.items[this.randomItem()].src} />
-                    <img src={this.props.items[this.randomItem()].src} />
-                    <img src={this.props.items[this.randomItem()].src} />
+                    <div onClick={this.handleBuyItem1Click}>
+                        <img src={this.props.items[this.item1Id].src} />
+                        <h4>{this.props.items[this.item1Id].name}</h4>
+                        <h4>{this.props.items[this.item1Id].attack 
+                            ? "Attack: " + this.props.items[this.item1Id].attack 
+                            : "Defense: " + this.props.items[this.item1Id].defense}</h4>
+                        <h4>Cost: {this.props.items[this.item1Id].cost} Gold</h4>
+                    </div>
+                    <div onClick={this.handleBuyItem2Click}>
+                        <img src={this.props.items[this.item2Id].src} />
+                        <h4>{this.props.items[this.item2Id].name}</h4>
+                        <h4>{this.props.items[this.item2Id].attack 
+                            ? "Attack: " + this.props.items[this.item2Id].attack 
+                            : "Defense: " + this.props.items[this.item2Id].defense}</h4>
+                        <h4>Cost: {this.props.items[this.item2Id].cost} Gold</h4>
+                    </div>
+                    <div onClick={this.handleBuyItem3Click}>
+                        <img src={this.props.items[this.item3Id].src} />
+                        <h4>{this.props.items[this.item3Id].name}</h4>
+                        <h4>{this.props.items[this.item3Id].attack 
+                            ? "Attack: " + this.props.items[this.item3Id].attack 
+                            : "Defense: " + this.props.items[this.item3Id].defense}</h4>
+                        <h4>Cost: {this.props.items[this.item3Id].cost} Gold</h4>
+                    </div>
                 </div>
             </div>
         )
