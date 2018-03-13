@@ -13,7 +13,8 @@ export default function(state=[], action) {
                     xp: action.xp,
                     gold: action.gold,
                     armor: action.armor,
-                    weapon:action.weapon,
+                    weapon: action.weapon,
+                    inventory: action.inventory,
                     src: action.src
                 }
             ]

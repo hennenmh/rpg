@@ -9,7 +9,9 @@ class InitialScreen extends Component {
     }
 
     handleLoadGameClick = () => {
-        this.props.changeScreen(1);
+        (this.props.enemy[this.props.currentEnemy].health <= 0 
+            ? this.props.changeScreen(2)
+            : this.props.changeScreen(1))
     }
 
     render() {

@@ -4,7 +4,8 @@ import {changeScreen, deleteEnemies, deleteCharacter} from '../actions';
 
 const mapStateToProps = (state) => ({
         character : state.character,
-        enemy : state.enemy
+        enemy : state.enemy,
+        currentEnemy : state.currentEnemy
 });
 
 const mapDispatchToProps = (dispatch) => ({

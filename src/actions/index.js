@@ -1,4 +1,4 @@
-import Cap from '../images/Captain_placeholder.png';
+import Cap from '../images/players/Captain_placeholder.png';
 let nextCharId = 0
 export const createCharacter = (character) => ({
         type: 'CREATE_CHARACTER',
@@ -12,6 +12,7 @@ export const createCharacter = (character) => ({
         gold: 0,
         armor: {},
         weapon: {},
+        inventory: [],
         src: Cap,
 });
 
@@ -48,3 +49,11 @@ export const currentEnemy = (id) => ({
         type: 'CURRENT_ENEMY',
         id,
 });
+
+export const loadItems = () => ({
+        type: 'LOAD_ITEMS'
+})
+
+export const deleteItems = () => ({
+        type: 'DELETE_ITEMS'
+})

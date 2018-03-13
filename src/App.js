@@ -9,6 +9,7 @@ import UpgradeScreen from './containers/upgrade-container';
 import LossScreen from './containers/loss-container';
 import InitialScreen from './containers/initial-screen-container';
 import {changeScreen} from './actions';
+import Store from './containers/store-container';
 
 class App extends Component {
 
@@ -45,6 +46,7 @@ class App extends Component {
             <h2>Congratulations!</h2>
             <h3>Upgrade an Ability: </h3>
             <UpgradeScreen />
+            <Store />
           </div>
         )
         break;

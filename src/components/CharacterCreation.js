@@ -12,9 +12,10 @@ class CharacterCreation extends Component {
     }
     handleCreateClick = () => {
         this.props.createCharacter(this.state);
-        this.props.changeScreen(1);
         this.props.loadEnemies();
         this.props.currentEnemy(0);
+        this.props.loadItems();
+        this.props.changeScreen(1);
     }
 
     handleNameChange = (event) => {

@@ -15,7 +15,8 @@ store.subscribe(() => {
     saveState({
         character: store.getState().character,
         enemy: store.getState().enemy,
-        currentEnemy: store.getState().currentEnemy
+        currentEnemy: store.getState().currentEnemy,
+        items: store.getState().items
     });
 });
 

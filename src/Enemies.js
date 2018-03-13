@@ -1,8 +1,8 @@
-import BlackDragon from './images/Black_dragon.jpg';
-import Ooze from './images/Ooze.jpg';
-import Kobold from './images/Kobold.jpg';
-import RatKing from './images/Rat_king.jpg';
-import Rat from './images/Rat.jpg';
+import BlackDragon from './images/players/Black_dragon.jpg';
+import Ooze from './images/players/Ooze.jpg';
+import Kobold from './images/players/Kobold.jpg';
+import RatKing from './images/players/Rat_king.jpg';
+import Rat from './images/players/Rat.jpg';
 
 export default function() {
     return [
@@ -19,7 +19,7 @@ export default function() {
             name: "Rat King",
             attack: 2,
             defense: 1,
-            health: 1,
+            health: 15,
             src: RatKing
         },
         {
@@ -27,7 +27,7 @@ export default function() {
             name: "Kobold",
             attack: 3,
             defense: 3,
-            health: 1,
+            health: 20,
             src: Kobold
         },
         {
@@ -35,7 +35,7 @@ export default function() {
             name: "Ooze",
             attack: 4,
             defense: 2,
-            health: 1,
+            health: 25,
             src: Ooze
         },
         {
@@ -43,7 +43,7 @@ export default function() {
             name: "Dragon",
             attack: 6,
             defense: 6,
-            health: 1,
+            health: 30,
             src: BlackDragon
         },
 

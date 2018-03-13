@@ -36,7 +36,7 @@ class Battle extends Component {
             this.isPlayerTurn = false;
             this.roundNum++;
             this.characterMagicAttack((Math.floor(this.props.character[0].attack * 1.5)), //character does 1.5 times attack as magic
-                                        (this.props.enemy[this.enemyId].defense + this.enemyId), //enemy has more magic defense as game goes on
+                                        (this.props.enemy[this.enemyId].defense + Math.floor(this.enemyId * .5)), //enemy has more magic defense as game goes on
                                         this.props.enemy[this.enemyId].health);
             this.enemyBaseAtk(this.props.enemy[this.enemyId].attack,
                                     this.props.character[0].defense,
@@ -105,7 +105,8 @@ class Battle extends Component {
                 this.props.updateCharacter("health", this.totCharHealth);
                 this.props.updateCharacter("level", this.props.character[0].level + 1);
                 this.props.updateCharacter("xp", this.props.character[0].xp + 50);
-                this.props.updateCharacter("gold", this.props.character[0].gold + (this.rollD100() < 20 ? 0 : this.rollD100()))
+                this.props.updateCharacter("gold", this.props.character[0].gold + 
+                    (this.rollD100() < 20 ? 0 : (this.rollD6() * 2)))
             }
             
         } else if (this.props.character[0].health <= 0) {
