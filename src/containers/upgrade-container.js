@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Upgrade from '../components/Upgrade';
-import {updateCharacter, changeScreen, currentEnemy} from '../actions';
+import {upgradeScreen, changeScreen, currentEnemy} from '../actions';
 
 const mapStateToProps = (state) => ({
         character: state.character || [],
@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-        updateCharacter : (property, value) => dispatch(updateCharacter(property, value)),
+        upgradeScreen : (att, def, health) => dispatch(upgradeScreen(att, def, health)),
         changeScreen : (screen) => dispatch(changeScreen(screen)),
         nextEnemy : (id) => dispatch(currentEnemy(id))
 });

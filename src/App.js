@@ -10,6 +10,7 @@ import LossScreen from './containers/loss-container';
 import InitialScreen from './containers/initial-screen-container';
 import {changeScreen} from './actions';
 import Store from './containers/store-container';
+import Inventory from './containers/inventory-container';
 
 class App extends Component {
 
@@ -47,6 +48,7 @@ class App extends Component {
             <h3>Upgrade an Ability: </h3>
             <UpgradeScreen />
             <Store />
+            <Inventory />
           </div>
         )
         break;

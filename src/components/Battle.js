@@ -47,10 +47,6 @@ class Battle extends Component {
     characterAttack = (cDamage, eHealth) => {
         (cDamage < 0) ? cDamage = 0 : cDamage;
             this.props.updateEnemy(this.enemyId, (eHealth - cDamage))
-            setTimeout(() => {
-                this.checkResults()
-                this.isPlayerTurn = true;
-            }, 500)
     }
 
     characterMagicAttack = (cAtk, eDef, eHealth) => {
@@ -71,10 +67,6 @@ class Battle extends Component {
         let damage = ((eAtk + roll) - cDef);
         (damage < 0) ? damage = 0 : damage;
             this.props.updateCharacter("health", (cHealth - damage))
-            setTimeout(() => {
-                this.checkResults()
-                this.isPlayerTurn = true;
-            }, 500)
         this.enemyAtkText = "The " + this.props.enemy[this.enemyId].name + " crit and did " + damage + " damage!"
     }
 
@@ -86,13 +78,12 @@ class Battle extends Component {
             let damage = ((eAtk + roll) - cDef);
             (damage < 0) ? damage = 0 : damage;
             this.props.updateCharacter("health", (cHealth - damage))
-            setTimeout(() => {
-                this.checkResults()
-                this.isPlayerTurn = true;
-            }, 500)
             this.enemyAtkText = "The " + this.props.enemy[this.enemyId].name + " did " + damage + " damage!"
         }
-        
+        setTimeout(() => {
+            this.checkResults()
+            this.isPlayerTurn = true;
+        }, 500)
     }
 
     checkResults = () => {
@@ -106,7 +97,10 @@ class Battle extends Component {
                 this.props.updateCharacter("level", this.props.character.level + 1);
                 this.props.updateCharacter("xp", this.props.character.xp + 50);
                 this.props.updateCharacter("gold", this.props.character.gold + 
-                    (this.rollD100() < 20 ? 0 : (this.rollD6() * 2)))
+                    (this.rollD100() < 20 ? 0 : (this.rollD6() * 2)));
+                this.rollD100() < 40 
+                    ? this.props.addInventory(this.props.items[(this.rollD6() - 1)]) 
+                    : null;
             }
             
         } else if (this.props.character.health <= 0) {

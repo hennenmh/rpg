@@ -4,7 +4,6 @@ class Loss extends Component {
 
     handleNewGameClick = () => {
         this.props.deleteEnemies();
-        this.props.deleteCharacter();
         this.props.changeScreen(0);
     }
 

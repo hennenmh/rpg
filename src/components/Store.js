@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import { updateCharacter } from '../actions/index';
 
 class Store extends Component {
 
     randomItem = () => {
-        return Math.floor(Math.random() * 5)
+        return Math.floor(Math.random() * 6)
     }
 
     item1Id = this.randomItem();
@@ -12,26 +11,31 @@ class Store extends Component {
     item3Id = this.randomItem();
 
     handleBuyItem1Click = () => {
-        this.props.addInventory(this.props.items[this.item1Id])
-
-        // Use this for equipping items
-        // this.props.items[this.item1Id].type === "weapon"
-        // ? this.props.updateCharacter("weapon", this.props.items[this.item1Id])
-        // : this.props.updateCharacter("armor", this.props.items[this.item1Id])
+        this.props.character.gold >= this.props.items[this.item1Id].cost
+            ? this.props.addInventory(this.props.items[this.item1Id])
+            && this.props.updateCharacter("gold", this.props.character.gold - this.props.items[this.item1Id].cost)
+            : alert("Not enough gold!")
     }
 
     handleBuyItem2Click = () => {
-        this.props.addInventory(this.props.items[this.item2Id])
+        this.props.character.gold >= this.props.items[this.item2Id].cost
+            ? this.props.addInventory(this.props.items[this.item2Id])
+            && this.props.updateCharacter("gold", this.props.character.gold - this.props.items[this.item2Id].cost)
+            : alert("Not enough gold!")
     }
 
     handleBuyItem3Click = () => {
-        this.props.addInventory(this.props.items[this.item3Id])
+        this.props.character.gold >= this.props.items[this.item3Id].cost
+            ? this.props.addInventory(this.props.items[this.item3Id])
+            && this.props.updateCharacter("gold", this.props.character.gold - this.props.items[this.item3Id].cost)
+            : alert("Not enough gold!")
     }
 
     render() {
         return(
             <div>
-                <br/><h3>It's Dangerous to go Alone!</h3>
+                <hr/>
+                <h3>It's Dangerous to go Alone!</h3>
                 <h3>Buy Something!</h3>
                 <div className="store-items">
                     <div onClick={this.handleBuyItem1Click}>

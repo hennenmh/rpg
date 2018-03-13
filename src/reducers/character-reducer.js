@@ -18,11 +18,22 @@ export default function(state={}, action) {
             }
         case 'UPDATE_CHARACTER':
             return {...state, [action.property]: action.value}
-        case 'DELETE_CHARACTER':
-            return {...state, character: {}}
+        case 'UPGRADE_SCREEN':
+            return {...state, 
+                        attack: action.att,
+                        defense: action.def,
+                        health: action.health,
+            }
         case 'ADD_INVENTORY':
             return {...state, inventory: [...state.inventory, action.item]}
         default:
             return state;
     }
 }
+
+export const upgradeScreen = (att, def, health) => ({
+    type: 'UPGRADE_SCREEN',
+    att,
+    def,
+    health,
+})

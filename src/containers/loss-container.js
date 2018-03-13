@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Loss from '../components/Loss';
-import {changeScreen, deleteCharacter, deleteEnemies} from '../actions';
+import {changeScreen, deleteEnemies} from '../actions';
 
 const mapStateToProps = (state) => ({
         enemy: state.enemy
@@ -8,7 +8,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
         deleteEnemies: () => dispatch(deleteEnemies()),
-        deleteCharacter : () => dispatch(deleteCharacter()),
         changeScreen : (screen) => dispatch(changeScreen(screen)),
 });
 

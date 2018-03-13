@@ -22,8 +22,11 @@ export const updateCharacter = (property, value) => ({
         value,
 });
 
-export const deleteCharacter = () => ({
-        type: 'DELETE_CHARACTER'
+export const upgradeScreen = (att, def, health) => ({
+        type: 'UPGRADE_SCREEN',
+        att,
+        def,
+        health,
 })
 
 export const changeScreen = (screen) => ({
