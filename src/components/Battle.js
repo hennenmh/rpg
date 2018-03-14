@@ -56,7 +56,6 @@ class Battle extends Component {
     }
 
     characterMagicAttack = (cAtk, eDef, eHealth) => {
-        console.log(cAtk)
         let damage = (cAtk - eDef);
         this.characterAttack(damage, eHealth);
         this.charAtkText = "You did " + ((damage < 0) ? damage = 0 : damage) + " magic damage!"
@@ -78,7 +77,6 @@ class Battle extends Component {
     }
 
     enemyBaseAtk = (eAtk, cDef, cHealth) => {
-        console.log(cDef)
         let roll = this.rollD6();
         if (this.rollD100() < 25) {
             this.enemyCritAtk(eAtk, cDef, cHealth, roll);
@@ -106,20 +104,13 @@ class Battle extends Component {
                 this.props.updateCharacter("level", this.props.character.level + 1);
                 this.props.updateCharacter("xp", this.props.character.xp + 50);
                 this.props.updateCharacter("gold", this.props.character.gold + 
-                    (this.rollD100() < 20 ? 0 : (this.rollD6())));
-                if (this.props.character.inventory.includes(this.props.items[randomItemId])) {
-                    console.log(randomItemId)
-                    console.log("Already have item")
-                    return null
-                } else {
-                    this.props.addInventory(this.props.items[(this.rollD6() - 1)])
+                    (this.rollD100() < 40 ? 0 : this.rollD6()));
+                if ( this.rollD100() < 30) {
+                    if (!this.props.character.inventory.includes(this.props.items[randomItemId])) {
+                        this.props.addInventory(this.props.items[randomItemId])
+                    } 
                 }
-                
-                // this.rollD100() < 40 
-                //     ? this.props.addInventory(this.props.items[(this.rollD6() - 1)]) 
-                //     : null;
             }
-            
         } else if (this.props.character.health <= 0) {
             this.props.changeScreen(3);
         }

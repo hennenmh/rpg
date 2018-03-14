@@ -27,6 +27,8 @@ class Upgrade extends Component {
     render() {
         return (
             <div>
+                <h2>Congratulations!</h2>
+                <h3>Upgrade an Ability: </h3>
                 <p>Current Level: {this.props.character.level}</p>
                 <p>Current XP: {this.props.character.xp}</p>
                 <p>Current Gold: {this.props.character.gold}</p>

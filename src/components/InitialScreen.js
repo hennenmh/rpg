@@ -17,6 +17,7 @@ class InitialScreen extends Component {
     render() {
         return (
             <div className="initial-screen">
+                <h1>Welcome to the Dungeon Crawl!</h1><br/>
                 <h2>New Game or Load Game</h2>
                 <input type="button" value="New Game" onClick={this.handleNewGameClick} />
                 <input disabled={this.props.character.health <= 0 || this.props.enemy[4].health <= 0}  

@@ -10,6 +10,7 @@ class Loss extends Component {
     render() {
         return (
             <div>
+                <h2>You Have Been Defeated!</h2>
                 <h3>Defeated Monsters</h3>
                 <ul>
                     {this.props.enemy.map(defeated => (

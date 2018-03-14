@@ -45,7 +45,7 @@ class Inventory extends Component {
                         <h4>{item.attack 
                             ? "Attack: " + item.attack 
                             : "Defense: " + item.defense}</h4>
-                        <input type="button" value="Sell" onClick={() => this.sellItem(index)}/>
+                        <button onClick={() => this.sellItem(index)}>Sell for {item.cost} Gold</button>
                         </div>
                     ))}
                 </ul>

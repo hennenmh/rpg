@@ -44,8 +44,6 @@ class App extends Component {
       case 2:
         page = (
           <div>
-            <h2>Congratulations!</h2>
-            <h3>Upgrade an Ability: </h3>
             <UpgradeScreen />
             <Store />
             <Inventory />
@@ -55,7 +53,6 @@ class App extends Component {
       case 3:
         page = (
           <div>
-            <h2>You Have Been Defeated!</h2>
             <LossScreen />
           </div>
         )
