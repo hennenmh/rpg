@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: black;
 }
 
 .App-logo {
@@ -43,4 +44,8 @@
   display: flex;
   justify-content: center;
   align-items: baseline;
+}
+
+.initial-screen {
+  
 }

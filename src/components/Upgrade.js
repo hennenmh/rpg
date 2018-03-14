@@ -16,6 +16,8 @@ class Upgrade extends Component {
             case 'health':
                 this.props.upgradeScreen(tempAttack, tempDefense, tempHealth + 2);
                 break;
+            default:
+                break;
             
         }
         this.props.changeScreen(1);
