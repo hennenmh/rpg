@@ -20,9 +20,13 @@ class Inventory extends Component {
 
     sellItem = (id) => {
         this.props.updateCharacter("gold", this.props.character.gold + this.props.character.inventory[id].cost);
-        this.props.character.inventory[id].type === "weapon"
-            ? this.props.updateCharacter("weapon", {})
-            : this.props.updateCharacter("armor", {});
+        if (this.props.character.inventory[id].name === (this.props.character.weapon.name || this.props.character.armor.name)) {
+            if (this.props.character.inventory[id].type === "weapon") {
+                this.props.updateCharacter("weapon", {})
+            } else {
+                this.props.updateCharacter("armor", {})
+            }
+        }
         let tempInv = this.props.character.inventory.filter(item => !(item.name === this.props.character.inventory[id].name))
         this.props.updateCharacter("inventory", tempInv)
     }
