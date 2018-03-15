@@ -14,13 +14,13 @@ class Loss extends Component {
                 <h3>Defeated Monsters</h3>
                 <ul>
                     {this.props.enemy.map(defeated => (
-                        defeated.health <= 0 ? <img key={defeated.id} src={defeated.src} alt="defeated"/> : null
+                        defeated.health <= 0 ? <img key={defeated.id} src={defeated.src} alt="defeated" /> : null
                     ))}
                 </ul>
                 <h3>Undefeated Monster</h3>
                 <ul>
                     {this.props.enemy.map(undefeated => (
-                        undefeated.health > 0 ? <img key={undefeated.id} src={undefeated.src} alt="undefeated"/> : null
+                        undefeated.health > 0 ? <img key={undefeated.id} src={undefeated.src} alt="undefeated" /> : null
                     ))}
                 </ul>
                 <input type="button" value="Start New Game" onClick={this.handleNewGameClick}/>

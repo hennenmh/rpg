@@ -29,9 +29,9 @@ export default function() {
             id: 2,
             name: "Vorpal Scimitar",
             type: "weapon",
-            attack: 5,
+            attack: 4,
             defense: 0,
-            cost: 5,
+            cost: 4,
             src: Vorpal
         },
         {
@@ -49,7 +49,7 @@ export default function() {
             type: "armor",
             attack: 0,
             defense: 2,
-            cost: 3,
+            cost: 2,
             src: Plate
         },
         {
@@ -57,8 +57,8 @@ export default function() {
             name: "Mithril Shirt",
             type: "armor",
             attack: 0,
-            defense: 5,
-            cost: 5,
+            defense: 4,
+            cost: 4,
             src: Mithril
         },
 

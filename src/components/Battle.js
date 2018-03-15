@@ -105,7 +105,7 @@ class Battle extends Component {
                 this.props.updateCharacter("xp", this.props.character.xp + 50);
                 this.props.updateCharacter("gold", this.props.character.gold + 
                     (this.rollD100() < 40 ? 0 : this.rollD6()));
-                if ( this.rollD100() < 30) {
+                if ( this.rollD100() < 20) {
                     if (!this.props.character.inventory.includes(this.props.items[randomItemId])) {
                         this.props.addInventory(this.props.items[randomItemId])
                     } 
